@@ -26,12 +26,13 @@ const main = async () => {
         .rpc();
 
     //4 - Confirm the transaction
-    await connection.confirmTransaction({
+    const res = await connection.confirmTransaction({
         signature: tx,
         blockhash: latestBlockhash.blockhash,
         lastValidBlockHeight: latestBlockhash.lastValidBlockHeight
     });
     console.log(`https://explorer.solana.com/tx/${tx}?cluster=devnet`);
+    console.log(res)
 }
 
 const runMain = async () => {
